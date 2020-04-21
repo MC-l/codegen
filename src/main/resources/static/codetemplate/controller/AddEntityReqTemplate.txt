@@ -1,0 +1,21 @@
+package [package].req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+
+/**
+ * @Author MCl
+ * @Date [date]
+ */
+@ApiModel(value = "新增[EntityDesc]请求体",description = "新增[EntityDesc]请求体")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Add[Entity]Req {
+
+}

@@ -1,0 +1,73 @@
+package [servicePackage].impl;
+
+[importLines]
+import [servicePackage].[ServiceTemplate];
+import [mapperPackage].[MapperClass];
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+
+/**
+ * @Author MCl
+ * @Date [date]
+ */
+@Service
+public class [ServiceTemplate]Impl implements [ServiceTemplate] {
+
+    @Resource
+    private [MapperClass] [mapperClass];
+
+    @Override
+    public int countByExample([Entity]Criteria criteria) {
+        return [mapperClass].countByExample(criteria);
+    }
+
+    @Override
+    public int deleteByExample([Entity]Criteria criteria) {
+        return [mapperClass].deleteByExample(criteria);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Long id) {
+        return [mapperClass].deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int insert([Entity] record) {
+        return [mapperClass].insert(record);
+    }
+
+    @Override
+    public int insertSelective([Entity] record) {
+        return [mapperClass].insertSelective(record);
+    }
+
+    @Override
+    public List<[Entity]> selectByExample([Entity]Criteria criteria) {
+        return [mapperClass].selectByExample(criteria);
+    }
+
+    @Override
+    public [Entity] selectByPrimaryKey(Long id) {
+        return [mapperClass].selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateByExampleSelective([Entity] record, [Entity]Criteria criteria) {
+        return [mapperClass].updateByExampleSelective(record, criteria);
+    }
+
+    @Override
+    public int updateByExample([Entity] record, [Entity]Criteria criteria) {
+        return [mapperClass].updateByExample(record, criteria);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective([Entity] record) {
+        return [mapperClass].updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public int updateByPrimaryKey([Entity] record) {
+        return [mapperClass].updateByPrimaryKeySelective(record);
+    }
+}

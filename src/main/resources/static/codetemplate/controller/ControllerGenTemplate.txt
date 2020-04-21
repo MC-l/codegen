@@ -1,0 +1,67 @@
+package [package];
+
+
+import [importLines];
+import [importReqClassPath];
+import [servicePackage];
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.yiwei.union.common.exception.ComExpEnum;
+import com.yiwei.union.common.exception.ComExpUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import java.util.List;
+
+
+/**
+ * @Author MCl
+ * @Date [date]
+ */
+@Api(value = "[Entity]Controller",tags = "[EntityDesc]控制器")
+@RestController
+@RequestMapping("[entity]")
+public class [Entity]Controller {
+
+    @Autowired
+    private [ServiceClass] [serviceClass];
+
+    @ApiOperation(value = "add",notes = "新增[EntityDesc]")
+    @PostMapping("add")
+    public void add(@RequestBody @ApiParam @Valid Add[Entity]Req req){
+        [serviceClass].add(req);
+    }
+
+    @ApiOperation(value = "del",notes = "删除[EntityDesc]")
+    @GetMapping("del")
+    public void del(@RequestParam @ApiParam Long id){
+        int rows = [serviceClass].deleteByPrimaryKey(id);
+        ComExpUtil.throwIfTrue(rows < 1, ComExpEnum.BIZ_EXE_FAILED,"删除[EntityDesc]");
+    }
+
+    @ApiOperation(value = "listAll",notes = "查询所有[EntityDesc]")
+    @GetMapping("listAll")
+    public List<[Entity]> listAll(){
+        List<[Entity]> consumeScenes = [serviceClass].selectByExample(null);
+        System.out.println(consumeScenes);
+        return consumeScenes;
+    }
+
+    @ApiOperation(value = "getOne",notes = "查询指定[EntityDesc]")
+    @GetMapping("getOne")
+    public [Entity] getOne(@RequestParam @ApiParam Long id){
+        return [serviceClass].selectByPrimaryKey(id);
+    }
+
+    @ApiOperation(value = "listByPage",notes = "分页查询")
+    @GetMapping("listByPage")
+    public PageInfo<[Entity]> listByPage(@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        PageInfo<[Entity]> pageInfo = new PageInfo<>([serviceClass].selectByExample(null));
+        return pageInfo;
+    }
+
+}
