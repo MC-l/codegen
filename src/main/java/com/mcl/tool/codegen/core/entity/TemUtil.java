@@ -86,7 +86,7 @@ public final class TemUtil {
 
     public static final void genClassLine(StringBuilder sb,Table table,String tablePrefix){
 
-        String tableName = table.getTableName().replace(tablePrefix,"");
+        String tableName = table.getTableName().replaceFirst(tablePrefix,"");
 
 
         String[] ns = tableName.split("_");
@@ -96,7 +96,7 @@ public final class TemUtil {
         }
         String className = temp.toString();
 
-        String replace = TempConst.classLine.replace("[className]", className);
+        String replace = TempConst.classLine.replace("[className]", className).replace("[tableName]",table.getTableName());
         sb.append(replace);
 
         if (PropertiesUtil.contains(ConfigConst.BASE_ENTITY)){
@@ -114,6 +114,7 @@ public final class TemUtil {
 
     public static final void genImport(StringBuilder sb,List<RowDetail> rowDetails){
         sb.append("import lombok.Data;\n");
+        sb.append("import com.baomidou.mybatisplus.annotation.TableName;\n");
 
         // 导入 BaseEntity
         if (PropertiesUtil.contains(ConfigConst.BASE_ENTITY)){

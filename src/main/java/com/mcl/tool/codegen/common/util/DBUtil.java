@@ -6,7 +6,7 @@ public class DBUtil {
     // 数据库链接信息
     private static String user = "root";
     private static String password = "Blsx2018";
-    private static String url = "jdbc:mysql://192.168.2.233:3306/INFORMATION_SCHEMA?characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull";
+    private static String url = "jdbc:mysql://192.168.2.104:3306/INFORMATION_SCHEMA?characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull";
     private static String driver = "com.mysql.cj.jdbc.Driver";
 
     // 事务配置

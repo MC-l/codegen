@@ -20,11 +20,15 @@ public class EntityGenUtil {
 
     public static void main(String[] args) throws Exception {
         Connection conn = DBUtil.getConnection();
+        String tablePrefix = "t_";
 
-        String dbName = "test";
-        List<String> tableNames = Arrays.asList("test_user");
-        String packageName = "com.daxiongxx.hr.info";
-        String tablePrefix = "test_";
+        String dbName = "qixing";
+        List<String> tableNames = Arrays.asList("t_memory","t_memory_node");
+        String packageName = "com.blsx.usercenter.entity";
+
+//        String dbName = "blsx_web";
+//        List<String> tableNames = Arrays.asList("t_msg_status");
+//        String packageName = "com.blsx.usercenter.entity";
 
         List<Table> tables = getTables(conn, dbName, tableNames);
 

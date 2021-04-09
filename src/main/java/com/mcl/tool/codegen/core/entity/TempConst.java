@@ -23,7 +23,7 @@ public final class TempConst {
             " */";
 
 
-    public static final String classLine = "@Data\npublic class [className]";
+    public static final String classLine = "@Data\n@TableName(\"[tableName]\")\npublic class [className]";
 
 
 }
